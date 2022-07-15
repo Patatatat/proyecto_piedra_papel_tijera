@@ -1,86 +1,41 @@
 import random
+import time
+class Game:
+  RD = random.randrange(0, 3)
+  CPU = ""
+  print("1)Rock")
+  print("2)Paper")
+  print("3)Scissors")
+  opcion = int(input("What do you choose?: "))
 
-def game():
-    Rock = 'Rock'
-    paper = 'Paper'
-    scissors = 'Scissors'
+  if opcion == 1:
+      Player = "rock"
+  elif opcion == 2:
+      Player = "paper"
+  elif opcion == 3:
+      Player = "scissors"
+  print("you choose: ", Player)
 
-
-    
-    juego = [Rock, paper, scissors]
-    
-
-    opponent = juego
-
-    cpu = []
-
-    for i in range(1):
-        caracter_random = random.choice(opponent)
-        cpu.append(caracter_random)
-
-    cpu = "".join(cpu)
-    return cpu
-
-def Rock():
-     rock = 'Rock'
-     paper = 'Paper'
-     scissors = 'Scissors'
-
-     cpu = game()
-     player = input('')
-     print(cpu)
-     if cpu == rock and player == rock:
-         print('tie')
-         print('please exit with ctrl + C')
-     elif cpu == rock and player == paper:
-         print('you win')
-         print('please exit with ctrl + C')
-     elif cpu  == rock and  player == scissors:
-         print('you lose')
-         print('please exit with ctrl + C')
-
-def Paper():
-     rock = 'Rock'
-     paper = 'Paper'
-     scissors = 'Scissors'
-
-     cpu = game()
-     player = input('')
-     print(cpu)
-     if cpu == paper and player == rock:
-         print('tie')
-         print('please exit with ctrl + C')
-     elif cpu == paper and player == paper:
-         print('you win')
-         print('please exit with ctrl + C')
-     elif cpu  == paper and  player == scissors:
-         print('you lose')
-         print('please exit with ctrl + C')
-
-def Scissors():
-     rock = 'Rock'
-     paper = 'Paper'
-     scissors = 'Scissors'
-
-     cpu = game()
-     player = input('')
-     print(cpu)
-     if cpu == scissors and player == rock:
-         print('tie')
-         print('please exit with ctrl + C')
-     elif cpu == scissors and player == paper:
-         print('you win')
-         print('please exit with ctrl + C')
-     elif cpu  == scissors and  player == scissors:
-         print('you lose')
-         print('please exit with ctrl + C')
-    
-
-
-def run():
-    print('welcome to Rock, paper, scissors, what do you choose? ')
-    print(Rock(), Paper(),  Scissors())
-
-
-if __name__ == '__main__':
-    run()
+  if RD == 0:
+      CPU = "Rock"
+  elif RD == 1:
+      CPU = "paper"
+  elif RD == 2:
+      CPU = "scissors"
+  print("CPU choose: ", CPU)
+  time.sleep(1)
+  print("...")
+  if CPU == "rock" and Player == "paper":
+      print("You win, paper wraps rock")
+  elif CPU == "paper" and Player == "scissors":
+      print("You win, scissors cut paper")
+  elif CPU == "scissors" and Player == "rock":
+      print("You win, rock destroys scissors")
+  if CPU == "paper" and Player == "rock":
+      print("You lose, paper wraps rock")
+  elif CPU == "scissors" and Player == "paper":
+      print("You lose, scissors cut papel")
+  elif CPU == "rock" and Player == "scissors":
+      print("You lose, rock destroys scissors")
+  elif CPU == Player:
+      print("empate")
